@@ -1,16 +1,40 @@
-<div id="infomation">
-    <ul>
-        <li>score:</li>
-        <li>right:</li>
-        <li>wrong:</li>
-    </ul>
+<div class="container">
+    <!-- TODO: navbar style? -->
+    <div id="infomation">
+        <ul>
+            <li>score:</li>
+            <li>right:</li>
+            <li>wrong:</li>
+            <li><span id="option-button"></span></li>
+        </ul>
+    </div>
+    <div id="option-popup">
+    </div>
 </div>
-<div id="options"></div>
 <section id="question-placeholder"></section>
 
-<script>
-    // temporary write javascript inline
-var question_type = "horizontal";
-$("#question-placeholder").load("quest-" + question_type + ".html");
+<style type="text/css">
+    #infomation{
+        -webkit-animation: myfirst 0.5s; /* Chrome, Safari, Opera */
+        -webkit-animation-fill-mode: forwards;
+        animation: myfirst 0.5s;
+        animation-fill-mode: forwards;
+    }
 
+    /* Chrome, Safari, Opera */
+    @-webkit-keyframes myfirst {
+        from {background: rgba(0,0,0,0);}
+        to {background: rgba(255,255,255,0.05);}
+    }
+
+    /* Standard syntax */
+    @keyframes myfirst {
+        from {background: rgba(0,0,0,0);}
+        to {background: rgba(255,255,255,0.05);}
+    }
+</style>
+
+<script>
+    var question_type = "horizontal";
+    $("#question-placeholder").load("quest-" + question_type + ".html");
 </script>
