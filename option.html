@@ -8,24 +8,57 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Jumbotron Template for Bootstrap</title>
+    <title>HAHA</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet">
 
     <style type="text/css">
+      body {
+        border:1px solid blue;
+        margin: 0;
+        min-height: 100%;
+        background-image: url('background.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+
+      .background {
+        
+      }
+      .container {
+        border:1px solid red;
+      }
+      .masthead {
+        background-color: #f5f5f5;
+      }
+      .nav {
+        margin-top: 5px;
+        font-size: 30px;
+      }
+      .nav > .active > a:focus {
+        background: none;
+      }
+      .mynav > a{
+        color: #000000;
+      }
+      .active {
+        border:5px solid #d3d3d3;
+        /*background-color: #d3d3d3;*/
+      }
 
       .slider{
-        height: 470px;
+        min-height: 300px;
       }
       .slide {
         display: none;
-        height: 0px;
+        position: absolute;
+        margin-top: 20px;
       }
 
       .active_slide {
-          height: 470px;
           display: block;
+          position: static;
       }
 
 
@@ -65,6 +98,30 @@
       .slider-dots li.active-dot {
         color: #363636;
       }
+
+      .button-wrapper {
+        border:1px solid red;
+      }
+
+      .btn1 {
+        height: 220px;
+        font-size: 60px;
+        line-height: 200px;
+      }
+      .btn2{
+        height: 105px;
+        font-size: 60px;
+        line-height: 100px;
+      }
+
+      .btn-start {
+        margin-top: 20px;
+        min-height: 60px;
+        line-height: 60px;
+        font-size: 50px;
+      }
+
+
     </style>
 
     <!-- Custom styles for this template -->
@@ -82,109 +139,134 @@
   </head>
 
   <body>
+  <div class="background">
 
     <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="jumbotron">
-      <div class="container">
-        <h1>Hello, world!</h1>
-        <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+
+    <div class="containerd">
+
+      <div class="masthead">
+        <div role="navigation">
+          <ul class="nav nav-justified">
+            <li class="mynav list1 active"><a href="#"><span>選項1</a></li>
+            <li class="mynav list2"><a href="#"><span>選項2</a></li>
+            <li class="mynav list3"><a href="#"><span>選項3</a></li>
+            <li class="mynav list4"><a href="#"><span>選項4</a></li>
+          </ul>
+        </div>
       </div>
     </div>
 
     <div class="slider">
 
-      <div class="slide active_slide">
+      <div class="slide slide1 active_slide">
       <div class="container">
       <!-- Example row of columns -->
-        <div class="row">
+        <div class="button-wrapper">
           <div class="col-md-4">
-            <p><a class="btn btn-default btn-block" href="#" role="button">
+            <p><a class="btn btn-default btn-block btn1" href="#" role="button">
+              <span>只考字音</span>
+            </a></p>
+          </div>
+          <div class="col-md-4">
+            <p><a class="btn btn-default btn-block btn1" href="#" role="button">
+              <span>只考字形</span>
+            </a></p>
+          </div>
+          <div class="col-md-4">
+            <p><a class="btn btn-default btn-block btn1" href="#" role="button">
+              <span>字音+字形</span>
+            </a></p>
+          </div>
+        </div>
+
+      </div> 
+      </div>
+
+      <div class="slide slide2">
+      <div class="container">
+      <!-- Example row of columns -->
+        <div class="button-wrapper">
+          <div class="col-md-4">
+            <p><a class="btn btn-default btn-block btn2" href="#" role="button">
+              <span>10題</span>
+            </a></p>
+          </div>
+          <div class="col-md-4">
+            <p><a class="btn btn-default btn-block btn2" href="#" role="button">
+              <span>20題</span>
+            </a></p>
+          </div>
+          <div class="col-md-4">
+            <p><a class="btn btn-default btn-block btn2" href="#" role="button">
+              <span>40題</span>
+            </a></p>
+          </div>
+          <div class="col-md-4">
+            <p><a class="btn btn-default btn-block btn2" href="#" role="button">
+              <span>50題</span>
+            </a></p>
+          </div>
+          <div class="col-md-4">
+            <p><a class="btn btn-default btn-block btn2" href="#" role="button">
+              <span>75題</span>
+            </a></p>
+          </div>
+          <div class="col-md-4">
+            <p><a class="btn btn-default btn-block btn2" href="#" role="button">
+              <span>100題</span>
+            </a></p>
+          </div>
+        </div>
+
+      </div> 
+      </div>
+
+      <div class="slide slide3">
+      <div class="container">
+      <!-- Example row of columns -->
+        <div class="button-wrapper">
+          <div class="col-md-4">
+            <p><a class="btn btn-default btn-block btn3" href="#" role="button">
               <img src="QWQ2.png"/>
             </a></p>
           </div>
           <div class="col-md-4">
-            <h2>Heading</h2>
-            <p><a class="btn btn-default btn-block" href="#" role="button">View details &raquo;</a></p>
-        </div>
-          <div class="col-md-4">
-            <h2>Heading</h2>
-            <p><a class="btn btn-default btn-block" href="#" role="button">View details &raquo;</a></p>
-          </div>
-        </div>
-
-        <hr>
-      </div> 
-      </div>
-
-      <div class="slide">
-      <div class="container">
-      <!-- Example row of columns -->
-        <div class="row">
-          <div class="col-md-4">
-            <p><a class="btn btn-default btn-block" href="#" role="button">
+            <p><a class="btn btn-default btn-block btn3" href="#" role="button">
               <img src="QWQ2.png"/>
             </a></p>
           </div>
           <div class="col-md-4">
-            <h2>Heading</h2>
-            <img src="QWQ2.png"/>
-            <p><a class="btn btn-default btn-block" href="#" role="button">View details &raquo;</a></p>
-        </div>
-          <div class="col-md-4">
-            <h2>Heading</h2>
-            <p><a class="btn btn-default btn-block" href="#" role="button">View details &raquo;</a></p>
+            <p><a class="btn btn-default btn-block btn3" href="#" role="button">
+              <img src="QWQ2.png"/>
+            </a></p>
           </div>
         </div>
 
-        <hr>
       </div> 
       </div>
 
-      <div class="slide">
+      <div class="slide slide4">
       <div class="container">
       <!-- Example row of columns -->
-        <div class="row">
+        <div class="button-wrapper">
           <div class="col-md-4">
-            <p><a class="btn btn-default btn-block" href="#" role="button">
+            <p><a class="btn btn-default btn-block btn4" href="#" role="button">
               <img src="QWQ2.png"/>
             </a></p>
           </div>
           <div class="col-md-4">
-            <h2>Heading</h2>
-            <img src="QWQ2.png"/>
-            <p><a class="btn btn-default btn-block" href="#" role="button">View details &raquo;</a></p>
-        </div>
-          <div class="col-md-4">
-            <h2>Heading</h2>
-            <img src="QWQ2.png"/>
-            <p><a class="btn btn-default btn-block" href="#" role="button">View details &raquo;</a></p>
-          </div>
-        </div>
-
-        <hr>
-      </div> 
-      </div>
-
-      <div class="slide">
-      <div class="container">
-      <!-- Example row of columns -->
-        <div class="row">
-          <div class="col-md-4">
-            <p><a class="btn btn-default btn-block" href="#" role="button">
-              <h2>Heading</h2>
+            <p><a class="btn btn-default btn-block btn4" href="#" role="button">
+              <img src="QWQ2.png"/>
             </a></p>
           </div>
           <div class="col-md-4">
-            <h2>Heading</h2>
-            <p><a class="btn btn-default btn-block" href="#" role="button">View details &raquo;</a></p>
-        </div>
-          <div class="col-md-4">
-            <h2>Heading</h2>
-            <p><a class="btn btn-default btn-block" href="#" role="button">View details &raquo;</a></p>
+            <p><a class="btn btn-default btn-block btn4" href="#" role="button">
+              <img src="QWQ2.png"/>
+            </a></p>
           </div>
         </div>
 
-        <hr>
       </div> 
       </div>
 
@@ -194,27 +276,26 @@
     <div class="slider-nav">
       <a href="#" class="arrow-prev"><img src="http://s3.amazonaws.com/codecademy-content/courses/ltp2/img/flipboard/arrow-prev.png"></a>
       <ul class="slider-dots">
-        <li class="dot active-dot">&bull;</li>
-        <li class="dot">&bull;</li>
-        <li class="dot">&bull;</li>
-        <li class="dot">&bull;</li>
+        <li class="dot dot1 active-dot">&bull;</li>
+        <li class="dot dot2">&bull;</li>
+        <li class="dot dot3">&bull;</li>
+        <li class="dot dot4">&bull;</li>
       </ul>
       <a href="#" class="arrow-next"><img src="http://s3.amazonaws.com/codecademy-content/courses/ltp2/img/flipboard/arrow-next.png"></a>
     </div> 
 
-    <div class="jumbotron">
       <div class="container">
-        <p><a class="btn btn-primary btn-lg btn-block" href="#" role="button">Learn more &raquo;</a></p>
+        <p><a class="btn btn-primary btn-lg btn-block btn-start" href="#" role="button">立刻開始挑戰！</a></p>
       </div>
-    </div>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
     <script src="app.js"></script>
+  </div>
   </body>
 </html>
