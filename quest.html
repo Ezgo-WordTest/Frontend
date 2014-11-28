@@ -1,20 +1,18 @@
 <div class="container">
     <!-- TODO: navbar style? -->
-    <div id="infomation">
-        <ul>
-            <li>score:</li>
-            <li>right:</li>
-            <li>wrong:</li>
-            <li><span id="option-button"></span></li>
-        </ul>
-    </div>
+    <ul id="information" class="nav nav-pills">
+        <li class="lead"><a href="#">score:</a></li>
+        <li class="lead"><a href="#">right:</a></li>
+        <li class="lead"><a href="#">wrong:</a></li>
+        <li class="lead navbar-right"><a href="#"><i class="icon-cog" id="option-button"></i></a></li>
+    </ul>
     <div id="option-popup">
     </div>
 </div>
 <section id="question-placeholder"></section>
 
 <style type="text/css">
-    #infomation{
+    #information{
         -webkit-animation: myfirst 0.5s; /* Chrome, Safari, Opera */
         -webkit-animation-fill-mode: forwards;
         animation: myfirst 0.5s;
