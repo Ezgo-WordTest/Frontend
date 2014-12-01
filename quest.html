@@ -1,39 +1,39 @@
 <div class="container">
-    <!-- TODO: navbar style? -->
-    <ul id="information" class="nav nav-pills">
-        <li class="lead"><a href="#">score:</a></li>
-        <li class="lead"><a href="#">right:</a></li>
-        <li class="lead"><a href="#">wrong:</a></li>
-        <li class="lead navbar-right"><a href="#"><i class="icon-cog" id="option-button"></i></a></li>
-    </ul>
-    <div id="option-popup">
-    </div>
+  <!-- TODO: navbar style? -->
+  <ul id="information" class="nav nav-pills">
+    <li class="lead"><a href="#">score:</a></li>
+    <li class="lead"><a href="#">right:</a></li>
+    <li class="lead"><a href="#">wrong:</a></li>
+    <li class="lead navbar-right"><a href="#"><i class="icon-cog" id="option-button"></i></a></li>
+  </ul>
+  <div id="option-popup">
+  </div>
 </div>
 <section id="question-placeholder"></section>
 
 <style type="text/css">
-    #information{
-        -webkit-animation: myfirst 0.5s; /* Chrome, Safari, Opera */
-        -webkit-animation-fill-mode: forwards;
-        animation: myfirst 0.5s;
-        animation-fill-mode: forwards;
-    }
+  #information{
+    -webkit-animation: myfirst 0.5s; /* Chrome, Safari, Opera */
+    -webkit-animation-fill-mode: forwards;
+    animation: myfirst 0.5s;
+    animation-fill-mode: forwards;
+  }
 
-    /* Chrome, Safari, Opera */
-    @-webkit-keyframes myfirst {
-        from {background: rgba(0,0,0,0);}
-        to {background: rgba(255,255,255,0.05);}
-    }
+  /* Chrome, Safari, Opera */
+  @-webkit-keyframes myfirst {
+    from {background: rgba(0,0,0,0);}
+    to {background: rgba(255,255,255,0.05);}
+  }
 
-    /* Standard syntax */
-    @keyframes myfirst {
-        from {background: rgba(0,0,0,0);}
-        to {background: rgba(255,255,255,0.05);}
-    }
+  /* Standard syntax */
+  @keyframes myfirst {
+    from {background: rgba(0,0,0,0);}
+    to {background: rgba(255,255,255,0.05);}
+  }
 </style>
 
 <script>
-    var question_type = ["vertical", "horizontal", "horizontal2"];
-    var question_type_setting = 0;
-    $("#question-placeholder").load("quest-" + question_type[0] + ".html");
+  var question_type = ["vertical", "horizontal", "horizontal2"];
+  var question_type_setting = 0;
+  $("#question-placeholder").load("quest-" + question_type[0] + ".html");
 </script>
