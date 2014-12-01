@@ -1,5 +1,5 @@
 var main = function() {
-  
+
   $('.list1').click(function() {
     var currentSlide = $('.active_slide');
     var nextSlide = $('.slide1');
@@ -95,7 +95,7 @@ var main = function() {
       nextDot = $('.dot').first();
       nextNav = $('.mynav').first();
     }
-    
+
     currentSlide.removeClass('active_slide');
     nextSlide.addClass('active_slide');
 
@@ -122,7 +122,7 @@ var main = function() {
       prevDot = $('.dot').last();
       nextNav = $('.mynav').last();
     }
-    
+
     currentSlide.removeClass('active_slide');
     prevSlide.addClass('active_slide');
 
@@ -133,6 +133,9 @@ var main = function() {
     nextNav.addClass('active');
   });
 
+  $('#startbutton').click(function() {
+    $("#main-block").load("quest.html");
+  });
 }
 
 $(document).ready(main);

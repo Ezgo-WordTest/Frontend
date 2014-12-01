@@ -33,6 +33,7 @@
 </style>
 
 <script>
-    var question_type = "horizontal";
-    $("#question-placeholder").load("quest-" + question_type + ".html");
+    var question_type = ["vertical", "horizontal", "horizontal2"];
+    var question_type_setting = 0;
+    $("#question-placeholder").load("quest-" + question_type[0] + ".html");
 </script>
