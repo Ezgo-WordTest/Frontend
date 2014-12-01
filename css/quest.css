@@ -1,0 +1,28 @@
+#information{
+  -webkit-animation: myfirst 0.5s; /* Chrome, Safari, Opera */
+  -webkit-animation-fill-mode: forwards;
+  animation: myfirst 0.5s;
+  animation-fill-mode: forwards;
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes myfirst {
+  from {background: rgba(0,0,0,0);}
+  to {background: rgba(255,255,255,0.05);}
+}
+
+/* Standard syntax */
+@keyframes myfirst {
+  from {background: rgba(0,0,0,0);}
+  to {background: rgba(255,255,255,0.05);}
+}
+.btn-clear {
+  background-color: transparent;
+  border-color: #222222;
+  box-shadow: 0px 0px 3px rgba(100%,100%,100%,0.5);
+  color: #222222;
+  font-weight: bold;
+  text-shadow: 0px 0px 3px rgba(100%,100%,100%,0.5);
+  margin-right: 10px;
+  margin-left: 10px;
+}

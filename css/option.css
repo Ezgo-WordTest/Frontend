@@ -1,0 +1,94 @@
+.container {
+  border:1px solid red;
+}
+.masthead {
+  background-color: #f5f5f5;
+}
+.nav {
+  margin-top: 5px;
+  font-size: 30px;
+}
+.nav > .active > a:focus {
+  background: none;
+}
+.mynav > a{
+  color: #000000;
+}
+.active {
+  border:5px solid #d3d3d3;
+  /*background-color: #d3d3d3;*/
+}
+
+.slider{
+  min-height: 300px;
+}
+.slide {
+  display: none;
+  position: absolute;
+  margin-top: 20px;
+}
+
+.active_slide {
+  display: block;
+  position: static;
+}
+
+
+.slider-nav {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.arrow-prev {
+  margin-right: 45px;
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 9px;
+}
+
+.arrow-next {
+  margin-left: 45px;
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 9px;
+}
+
+.slider-dots {
+  list-style: none;
+  display: inline-block;
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+.slider-dots li {
+  color: #bbbcbc;
+  display: inline;
+  font-size: 30px;
+  margin-right: 5px;
+}
+
+.slider-dots li.active-dot {
+  color: #363636;
+}
+
+.button-wrapper {
+  border:1px solid red;
+}
+
+.btn1 {
+  height: 220px;
+  font-size: 60px;
+  line-height: 200px;
+}
+.btn2{
+  height: 105px;
+  font-size: 60px;
+  line-height: 100px;
+}
+
+.btn-start {
+  margin-top: 20px;
+  min-height: 60px;
+  line-height: 60px;
+  font-size: 50px;
+}
