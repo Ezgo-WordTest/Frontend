@@ -1,14 +1,16 @@
 var main = function() {
   
-  $('.list1').click(function() {
+  $('.mynav').click(function() {
+    var id = $('.mynav').index(this);
+
     var currentSlide = $('.active_slide');
-    var nextSlide = $('.slide1');
+    var nextSlide = $("#slide"+(id+1));
 
     var currentDot = $('.active-dot');
-    var nextDot = $('.dot1');
+    var nextDot = $('#dot'+(id+1));
 
     var currentNav = $('.active');
-    var nextNav = $('.list1');
+    var nextNav = $('#list'+(id+1));
 
     currentSlide.removeClass('active_slide');
     nextSlide.addClass('active_slide');
@@ -20,64 +22,24 @@ var main = function() {
     nextNav.addClass('active');
   });
 
-  $('.list2').click(function() {
-    var currentSlide = $('.active_slide');
-    var nextSlide = $('.slide2');
+  $('.btn1').click(function() {
+    $('.list1 span').html($(this).html());
 
-    var currentDot = $('.active-dot');
-    var nextDot = $('.dot2');
-
-    var currentNav = $('.active');
-    var nextNav = $('.list2');
-
-    currentSlide.removeClass('active_slide');
-    nextSlide.addClass('active_slide');
-
-    currentDot.removeClass('active-dot');
-    nextDot.addClass('active-dot');
-
-    currentNav.removeClass('active');
-    nextNav.addClass('active');
   });
 
-  $('.list3').click(function() {
-    var currentSlide = $('.active_slide');
-    var nextSlide = $('.slide3');
+  $('.btn2').click(function() {
+    $('.list2 span').html($(this).html());
 
-    var currentDot = $('.active-dot');
-    var nextDot = $('.dot3');
-
-    var currentNav = $('.active');
-    var nextNav = $('.list3');
-
-    currentSlide.removeClass('active_slide');
-    nextSlide.addClass('active_slide');
-
-    currentDot.removeClass('active-dot');
-    nextDot.addClass('active-dot');
-
-    currentNav.removeClass('active');
-    nextNav.addClass('active');
   });
 
-  $('.list4').click(function() {
-    var currentSlide = $('.active_slide');
-    var nextSlide = $('.slide4');
+  $('.btn3').click(function() {
+    //$('.list3 span').html($(this).html());
 
-    var currentDot = $('.active-dot');
-    var nextDot = $('.dot4');
+  });
 
-    var currentNav = $('.active');
-    var nextNav = $('.list4');
+  $('.btn4').click(function() {
+    //$('.list4 span').html($(this).html());
 
-    currentSlide.removeClass('active_slide');
-    nextSlide.addClass('active_slide');
-
-    currentDot.removeClass('active-dot');
-    nextDot.addClass('active-dot');
-
-    currentNav.removeClass('active');
-    nextNav.addClass('active');
   });
 
   $('.arrow-next').click(function() {

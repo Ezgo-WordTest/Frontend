@@ -113,6 +113,16 @@
         font-size: 60px;
         line-height: 100px;
       }
+      .btn3 {
+        height: 220px;
+        font-size: 60px;
+        line-height: 200px;
+      }
+      .btn4 {
+        height: 220px;
+        font-size: 60px;
+        line-height: 200px;
+      }
 
       .btn-start {
         margin-top: 20px;
@@ -143,15 +153,15 @@
 
     <!-- Main jumbotron for a primary marketing message or call to action -->
 
-    <div class="containerd">
+    <div class="container">
 
       <div class="masthead">
         <div role="navigation">
           <ul class="nav nav-justified">
-            <li class="mynav list1 active"><a href="#"><span>選項1</a></li>
-            <li class="mynav list2"><a href="#"><span>選項2</a></li>
-            <li class="mynav list3"><a href="#"><span>選項3</a></li>
-            <li class="mynav list4"><a href="#"><span>選項4</a></li>
+            <li class="mynav active" id="list1"><a href="#"><span>字音+字形</a></li>
+            <li class="mynav" id="list2"><a href="#"><span>20題</a></li>
+            <li class="mynav" id="list3"><a href="#"><span>選擇題</a></li>
+            <li class="mynav" id="list4"><a href="#"><span>隨機出題</a></li>
           </ul>
         </div>
       </div>
@@ -159,13 +169,13 @@
 
     <div class="slider">
 
-      <div class="slide slide1 active_slide">
+      <div class="slide active_slide" id="slide1">
       <div class="container">
       <!-- Example row of columns -->
         <div class="button-wrapper">
           <div class="col-md-4">
             <p><a class="btn btn-default btn-block btn1" href="#" role="button">
-              <span>只考字音</span>
+              <span id>只考字音</span>
             </a></p>
           </div>
           <div class="col-md-4">
@@ -183,7 +193,7 @@
       </div> 
       </div>
 
-      <div class="slide slide2">
+      <div class="slide" id="slide2">
       <div class="container">
       <!-- Example row of columns -->
         <div class="button-wrapper">
@@ -222,23 +232,13 @@
       </div> 
       </div>
 
-      <div class="slide slide3">
+      <div class="slide" id="slide3">
       <div class="container">
       <!-- Example row of columns -->
         <div class="button-wrapper">
-          <div class="col-md-4">
+          <div class="col-md-12">
             <p><a class="btn btn-default btn-block btn3" href="#" role="button">
-              <img src="QWQ2.png"/>
-            </a></p>
-          </div>
-          <div class="col-md-4">
-            <p><a class="btn btn-default btn-block btn3" href="#" role="button">
-              <img src="QWQ2.png"/>
-            </a></p>
-          </div>
-          <div class="col-md-4">
-            <p><a class="btn btn-default btn-block btn3" href="#" role="button">
-              <img src="QWQ2.png"/>
+              選擇題
             </a></p>
           </div>
         </div>
@@ -246,23 +246,13 @@
       </div> 
       </div>
 
-      <div class="slide slide4">
+      <div class="slide" id="slide4">
       <div class="container">
       <!-- Example row of columns -->
         <div class="button-wrapper">
-          <div class="col-md-4">
+          <div class="col-md-12">
             <p><a class="btn btn-default btn-block btn4" href="#" role="button">
-              <img src="QWQ2.png"/>
-            </a></p>
-          </div>
-          <div class="col-md-4">
-            <p><a class="btn btn-default btn-block btn4" href="#" role="button">
-              <img src="QWQ2.png"/>
-            </a></p>
-          </div>
-          <div class="col-md-4">
-            <p><a class="btn btn-default btn-block btn4" href="#" role="button">
-              <img src="QWQ2.png"/>
+              隨機出題
             </a></p>
           </div>
         </div>
@@ -276,10 +266,10 @@
     <div class="slider-nav">
       <a href="#" class="arrow-prev"><img src="http://s3.amazonaws.com/codecademy-content/courses/ltp2/img/flipboard/arrow-prev.png"></a>
       <ul class="slider-dots">
-        <li class="dot dot1 active-dot">&bull;</li>
-        <li class="dot dot2">&bull;</li>
-        <li class="dot dot3">&bull;</li>
-        <li class="dot dot4">&bull;</li>
+        <li class="dot active-dot" id="dot1">&bull;</li>
+        <li class="dot" id="dot2">&bull;</li>
+        <li class="dot" id="dot3">&bull;</li>
+        <li class="dot" id="dot4">&bull;</li>
       </ul>
       <a href="#" class="arrow-next"><img src="http://s3.amazonaws.com/codecademy-content/courses/ltp2/img/flipboard/arrow-next.png"></a>
     </div> 
@@ -295,7 +285,7 @@
     <script src="js/bootstrap/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
-    <script src="app.js"></script>
+    <script src="option.js"></script>
   </div>
   </body>
 </html>
