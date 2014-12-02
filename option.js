@@ -1,5 +1,5 @@
 var main = function() {
-  
+
   $('.mynav').click(function() {
     var id = $('.mynav').index(this);
 
@@ -57,7 +57,7 @@ var main = function() {
       nextDot = $('.dot').first();
       nextNav = $('.mynav').first();
     }
-    
+
     currentSlide.removeClass('active_slide');
     nextSlide.addClass('active_slide');
 
@@ -84,7 +84,7 @@ var main = function() {
       prevDot = $('.dot').last();
       nextNav = $('.mynav').last();
     }
-    
+
     currentSlide.removeClass('active_slide');
     prevSlide.addClass('active_slide');
 
@@ -94,7 +94,10 @@ var main = function() {
     currentNav.removeClass('active');
     nextNav.addClass('active');
   });
-
+  
+  $('#start-button').click(function(){
+    $('#main-block').load('quest.html');
+  });
 }
 
 $(document).ready(main);
