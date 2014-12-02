@@ -1,3 +1,6 @@
-.grade{
-   color: #rgb(50,50,50);
+.grade h1{
+   color: rgb(0,0,200);
+}
+.grade p{
+   color: rgb(200,100,50);
 }
