@@ -23,22 +23,23 @@ var main = function() {
   });
 
   $('.btn1').click(function() {
-    $('.list1 span').html($(this).html());
+
+    $('#list1 span').html($(this).html());
 
   });
 
   $('.btn2').click(function() {
-    $('.list2 span').html($(this).html());
+    $('#list2 span').html($(this).html());
 
   });
 
   $('.btn3').click(function() {
-    //$('.list3 span').html($(this).html());
+    $('#list3 span').html($(this).html());
 
   });
 
   $('.btn4').click(function() {
-    //$('.list4 span').html($(this).html());
+    $('#list4 span').html($(this).html());
 
   });
 
