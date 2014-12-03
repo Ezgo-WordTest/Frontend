@@ -62,3 +62,22 @@
     </div>
   </div>
 </div> 
+<script>
+  var QuestionTag = {
+  Topic : '#topic',
+  Description: '#description',
+  Options:{
+    1:'#s1mark',
+    2:'#s2mark',
+    3:'#s3mark',
+    4:'#s4mark'
+  },
+  display: function(data){
+    $(this.Topic).text(data.topic);
+    $(this.Description).text(data.description);
+    for(var key in data.option){
+      $(this.Options[key]).text(data.option[key]);
+    }
+  }
+};
+</script>

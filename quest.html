@@ -38,18 +38,5 @@
   </div>
 </div>
 
-<script>
-  var question_type = ["vertical", "horizontal", "horizontal2"];
-  var question_type_setting = 0;
-  $("#question-placeholder").load("quest-" + question_type[0] + ".html");
-  $('#option-button').click(function(){
-    $('#popup-option').toggleClass('popup-active');
-  });
-  $('#popup-option').click(function(){
-    $('#popup-option').toggleClass('popup-active');
-  });
-  $('.mode-select').click(function(){
-    $("#question-placeholder").load("quest-" + question_type[$(this).attr('data')] + ".html");
-  });
-</script>
+<script src="js/quest.js"></script>
 <script> loadCSS('css/quest.css'); </script>
