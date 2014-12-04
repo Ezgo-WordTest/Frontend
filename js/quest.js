@@ -3,7 +3,7 @@ var question_type = ["vertical", "horizontal", "horizontal2"];
 var all_questions;
 
 var q_setting = 1;
-var option_settiing;
+var option_setting;
 var questions;
 var current_question;
 
@@ -19,7 +19,10 @@ var question_init = function(){
     questions = data;
     current_question = new Question(questions[0].question,questions[0].ps,questions[0].answer,questions[0].option1,questions[0].option2,questions[0].option3);
   });
-
+  alert(option_setting[0]);
+  alert(option_setting[1]);
+  alert(option_setting[2]);
+  alert(option_setting[3]);
 
   //current_question = new Question('Hello','Test Description', 'opt1','opt2','opt3','opt4');
   //current_question = new Question(questions[0].question,questions[0].ps,questions[0].answer,questions[0].option1,questions[0].option2,questions[0].option3);

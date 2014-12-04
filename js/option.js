@@ -1,6 +1,6 @@
 var main = function() {
 
-  var option1=3,option2=20,option3=1,option4=1;
+  var setting1=3,setting2=20,setting3=1,setting4=1;
 
   $('.mynav').click(function() {
     var id = $('.mynav').index(this);
@@ -25,24 +25,27 @@ var main = function() {
   });
 
   $('.btn1').click(function() {
-
     $('#list1 span').html($(this).html());
-
+    setting1 = $('.btn1').index(this) +1;
   });
 
   $('.btn2').click(function() {
     $('#list2 span').html($(this).html());
-
+    setting2 = $('.btn2').index(this);
+    if(setting2==0)setting2 = 10;
+    else if(setting2<3)setting2 *= 20;
+    else if(setting2<7)setting2 = (setting2-1)*25;
+    else setting2 = 10;
   });
 
   $('.btn3').click(function() {
     $('#list3 span').html($(this).html());
-
+    setting3 = $('.btn3').index(this) +1;
   });
 
   $('.btn4').click(function() {
     $('#list4 span').html($(this).html());
-
+    setting4 = $('.btn4').index(this) +1;
   });
 
   $('.arrow-next').click(function() {
@@ -99,7 +102,7 @@ var main = function() {
   });
   
   $('#start-button').click(function(){
-    option_setting = [];
+    option_setting = [setting1,setting2,setting3,setting4];
     $('#main-block').load('quest.html');
   });
 }
