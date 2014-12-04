@@ -4,3 +4,15 @@
 .grade p{
    color: rgb(200,100,50);
 }
+.option li {
+  border-bottom: 1px solid #636366;
+  font-family: 'Open Sans', sans-serif;
+  line-height: 45px;
+  padding-bottom: 3px;
+  padding-left: 10px;
+  padding-top: 3px;
+}
+.option a {
+  color: rgb(50,50,50);
+  font-size: 10px;
+}
