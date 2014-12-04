@@ -4,3 +4,30 @@
 .grade p{
    color: rgb(200,100,50);
 }
+.option li {
+  border-bottom: 1px solid #636366;
+  line-height: 45px;
+  padding-bottom: 3px;
+  padding-left: 10px;
+  padding-top: 3px;
+}
+.option a {
+  color: rgb(50,50,50);
+  font-size: 10px;
+}
+.option {
+ background-image: url('../background.jpg');
+ left top;
+  left: -250px; 
+  height: 100%;
+  position: fixed;
+  width: 250px;
+}
+.jumbotron {
+  background-image: url('../background.jpg');
+  height: 100%;
+  -webkit-background-size: cover;
+     -moz-background-size: cover;
+       -o-background-size: cover;
+          background-size: cover;
+}
