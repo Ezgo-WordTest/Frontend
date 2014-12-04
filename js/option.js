@@ -1,5 +1,7 @@
 var main = function() {
 
+  var option1=3,option2=20,option3=1,option4=1;
+
   $('.mynav').click(function() {
     var id = $('.mynav').index(this);
 
@@ -97,6 +99,7 @@ var main = function() {
   });
   
   $('#start-button').click(function(){
+    option_setting = [];
     $('#main-block').load('quest.html');
   });
 }

@@ -1,7 +1,10 @@
 // Display mode selection
 var question_type = ["vertical", "horizontal", "horizontal2"];
-var q_setting = 1;
+var all_questions;
 
+var q_setting = 1;
+var option_settiing;
+var questions;
 var current_question;
 
 var Question = function(topic,description,option1,option2,option3,option4){
@@ -11,7 +14,15 @@ var Question = function(topic,description,option1,option2,option3,option4){
 };
 
 var question_init = function(){
-  current_question = new Question('Hello','Test Description', 'opt1','opt2','opt3','opt4');
+
+  $.getJSON("all_questions.json", function(data) {
+    questions = data;
+    current_question = new Question(questions[0].question,questions[0].ps,questions[0].answer,questions[0].option1,questions[0].option2,questions[0].option3);
+  });
+
+
+  //current_question = new Question('Hello','Test Description', 'opt1','opt2','opt3','opt4');
+  //current_question = new Question(questions[0].question,questions[0].ps,questions[0].answer,questions[0].option1,questions[0].option2,questions[0].option3);
   layout_init();
 }
 
