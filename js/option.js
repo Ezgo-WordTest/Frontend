@@ -1,7 +1,6 @@
 settings = [1, 20, 1, 1];
 
 var main = function() {
-
   $('.mynav').click(function() {
     var id = $('.mynav').index(this);
 
