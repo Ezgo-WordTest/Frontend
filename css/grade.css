@@ -1,33 +1,31 @@
 .grade h1{
    color: rgb(0,0,200);
+   font-size: 60px;
 }
 .grade p{
    color: rgb(200,100,50);
+   font-size: 30px;
 }
 .option li {
   border-bottom: 1px solid #636366;
   line-height: 45px;
   padding-bottom: 3px;
-  padding-left: 10px;
+  padding-left: 350px;
   padding-top: 3px;
 }
+.icon-option{
+	//background-repeat: no-repeat;
+	//background-image: url('../background.jpg');
+	font-size: 80px;
+}
 .option a {
-  color: rgb(50,50,50); 
-  font-size: 10px;
+  color: rgb(200,200,50); 
+  font-size: 30px;
 }
 .option {
- background-image: url('../background.jpg');
  left top;
-  left: -250px; 
+  left: -600px; 
   height: 100%;
   position: fixed;
-  width: 250px;
-}
-.jumbotron {
-  background-image: url('../background.jpg');
-  height: 100%;
-  -webkit-background-size: cover;
-     -moz-background-size: cover;
-       -o-background-size: cover;
-          background-size: cover;
+  width: 600px;
 }
