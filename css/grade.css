@@ -12,8 +12,8 @@
   padding-top: 3px;
 }
 .option a {
-  color: rgb(50,50,50); 
-  font-size: 10px;
+  color: rgb(200,200,50); 
+  font-size: 30px;
 }
 .option {
  background-image: url('../background.jpg');
@@ -24,10 +24,14 @@
   width: 250px;
 }
 .jumbotron {
+   font-size: 30px;
   background-image: url('../background.jpg');
   height: 100%;
   -webkit-background-size: cover;
      -moz-background-size: cover;
        -o-background-size: cover;
           background-size: cover;
+}
+.icon-option{
+	font-size: 30px;
 }
