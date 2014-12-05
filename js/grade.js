@@ -6,7 +6,7 @@ var main = function() {
     $('.option').animate({left: "-600px"}, 400);
   });
   $('.back').click(function() {
-    $('#main-block').load('index.html');
+    $('#main-block').load('option.html');
   });  
   $('.answer').click(function() {
     //show anser
