@@ -60,20 +60,28 @@
   </div>
 </div> 
 <script>
-  var QuestionTag = {
+var mark = /[^ˋˊˇ]+/;
+var tone = /[ˋˊˇ]/;
+var QuestionTag = {
   Topic : '#topic',
   Description: '#description',
   Options:{
-    1:'#s1mark',
-    2:'#s2mark',
-    3:'#s3mark',
-    4:'#s4mark'
+    '1m':'#s1mark','1t':'#s1tone',
+    '2m':'#s2mark','2t':'#s2tone',
+    '3m':'#s3mark','3t':'#s3tone',
+    '4m':'#s4mark','4t':'#s4tone'
   },
   display: function(data){
     $(this.Topic).text(data.topic);
     $(this.Description).text(data.description);
     for(var key in data.option){
-      $(this.Options[key]).text(data.option[key]);
+      mk = mark.exec(data.option[key]) + '';
+      $(this.Options[key+'m']).html( mk.replace(/.{1}/g,"$&<br />") );
+      if(tone.exec(data.option[key]) != null){
+        $(this.Options[key+'t']).html('<br />' + tone.exec(data.option[key]) + '<br />');
+      }else{
+          $(this.Options[key+'t']).html('<br />　<br />');
+      }
     }
   }
 };
