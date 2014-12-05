@@ -8,6 +8,9 @@ var main = function() {
   $('.back').click(function() {
     //go back to front page
   });  
+  $('.answer').click(function() {
+    //show anser
+  });  
 };
 
 $(document).ready(main);
