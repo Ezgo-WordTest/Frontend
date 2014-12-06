@@ -92,11 +92,11 @@ $('.glyphicon-chevron-right').click(function() {
 
 var find_question = function(){
   //alert('QWQ');
-  //while(check_repeat(random_number)==true){
-    //random_number=Math.floor(Math.random()*1000);
-  //}
   $.getJSON("all_questions.json", function(data) {
     var random_number=Math.floor(Math.random()*1000);
+    while(check_repeat(random_number)==true){
+      random_number=Math.floor(Math.random()*1000);
+    }
     questions = data;
     //alert(questions[random_number].category);
     //alert(option_setting[0]);
