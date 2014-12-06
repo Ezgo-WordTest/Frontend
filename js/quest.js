@@ -1,5 +1,5 @@
 // Display mode selection
-var question_type = ["vertical", "horizontal", "horizontal2"];
+var question_type = ["vertical", "horizontal", "horizontal2","summary"];
 var all_questions;
 
 var q_setting = 1;
@@ -11,7 +11,7 @@ var selected_questions=[];
 var current_no=0;
 var avilible=0;
 
-var Question = function(topic,description,option){
+var Question = function(topic,description,option,answer){
   var i,temp;
   for(i=0;i<20;i++){
     var random_number=Math.floor(Math.random()*4);
@@ -23,13 +23,14 @@ var Question = function(topic,description,option){
   this.topic = topic;
   this.description = description;
   this.option = { 1:option[0], 2:option[1], 3:option[2], 4:option[3] };
+  this.answer = answer;
 }
 
 var question_init = function(){
-  alert(option_setting[0]);
+  /*alert(option_setting[0]);
   alert(option_setting[1]);
   alert(option_setting[2]);
-  alert(option_setting[3]);
+  alert(option_setting[3]);*/
   find_question();
   layout_init();
 }
@@ -61,6 +62,8 @@ var next_quest = function(){
   current_no++;
   //alert(selected_questions.length);
   if(current_no >= option_setting[1]){
+    $("#end-test").removeClass("btn-danger");
+    $("#end-test").addClass("btn-success");
     current_no = 0;
     current_question = selected_questions[0];
     $("#question-placeholder").load("quest-" + question_type[q_setting] + ".html", question_display );
@@ -106,7 +109,7 @@ var find_question = function(){
     while(questions[random_number].category=="1" && option_setting[0]==2){
       random_number=Math.floor(Math.random()*1000);
     }
-    current_question = new Question(questions[random_number].question,questions[random_number].ps,[questions[random_number].answer,questions[random_number].option1,questions[random_number].option2,questions[random_number].option3]);
+    current_question = new Question(questions[random_number].question,questions[random_number].ps,[questions[random_number].answer,questions[random_number].option1,questions[random_number].option2,questions[random_number].option3],questions[random_number].answer);
     selected_questions[current_no]=current_question;
     $("#question-placeholder").load("quest-" + question_type[q_setting] + ".html", question_display );
   });
@@ -123,6 +126,9 @@ var check_repeat = function(random_number){
   return false;
 }
   
+$("#end-test").click(function() {
+  alert('WOW');
+});
 
 
 
