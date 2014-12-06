@@ -9,6 +9,7 @@ var current_question;
 
 var selected_questions=[];
 var current_no=0;
+var avilible=0;
 
 var Question = function(topic,description,option){
   var i,temp;
@@ -64,12 +65,7 @@ var next_quest = function(){
     current_question = selected_questions[0];
   }
   else if(selected_questions.length <= current_no){
-    var random_number=Math.floor(Math.random()*1001);
-    $.getJSON("all_questions.json", function(data) {
-      questions = data;
-      current_question = new Question(questions[random_number].question,questions[random_number].ps,[questions[random_number].answer,questions[random_number].option1,questions[random_number].option2,questions[random_number].option3]);
-      selected_questions[current_no]=current_question;
-    });
+    find_question();
   }
   else{
     current_question = selected_questions[current_no];
@@ -95,11 +91,20 @@ $('.glyphicon-chevron-right').click(function() {
 var find_question = function(){
   //alert('QWQ');
   var random_number=Math.floor(Math.random()*1000);
+  //while(check_repeat(random_number)===true){
+    //random_number=Math.floor(Math.random()*1000);
+  //}
   $.getJSON("all_questions.json", function(data) {
     questions = data;
+    if(questions[random_number].category==="0" && option_setting[0]===1){
+      find_question();
+    }
+    if(questions[random_number].category==="1" && option_setting[0]===2){
+      find_question();
+    }
     current_question = new Question(questions[random_number].question,questions[random_number].ps,[questions[random_number].answer,questions[random_number].option1,questions[random_number].option2,questions[random_number].option3]);
-    selected_questions[current_no]=current_question;
   });
+  selected_questions[current_no]=current_question;
   $("#question-placeholder").load("quest-" + question_type[q_setting] + ".html", question_display );
   //if(option_setting[0]===1 && current_question.)
 }
@@ -107,7 +112,7 @@ var find_question = function(){
 var check_repeat = function(random_number){
   var i;
   for(i=0; i<selected_questions.length; i++){
-    if((selected_questions[i].id-1) == random_number){
+    if((selected_questions[i].id-1) === random_number){
       return true;
     }
   }
