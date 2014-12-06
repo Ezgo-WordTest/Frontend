@@ -21,7 +21,7 @@ var question_init = function(){
   $.getJSON("all_questions.json", function(data) {
     questions = data;
     current_question = new Question(questions[0].question,questions[0].ps,questions[0].answer,questions[0].option1,questions[0].option2,questions[0].option3);
-  });
+  }
   //alert(option_setting[0]);
   //alert(option_setting[1]);
   //alert(option_setting[2]);
@@ -30,6 +30,7 @@ var question_init = function(){
   //current_question = new Question('Hello','Test Description', 'opt1','opt2','opt3','opt4');
   //current_question = new Question(questions[0].question,questions[0].ps,questions[0].answer,questions[0].option1,questions[0].option2,questions[0].option3);
   layout_init();
+  });
 }
 
 var layout_init = function(){
@@ -60,12 +61,10 @@ var next_quest = function(){
   current_no++;
   //alert(selected_questions.length);
   if(current_no >= option_setting[1]){
-    alert('WQW');
     current_no = 0;
     current_question = selected_questions[0];
   }
   else if(selected_questions.length < option_setting[1]){
-    alert('WOW');
     var random_number=Math.floor(Math.random()*1001);
     $.getJSON("all_questions.json", function(data) {
       questions = data;
@@ -93,4 +92,13 @@ $('.glyphicon-chevron-left').click(function() {
 $('.glyphicon-chevron-right').click(function() {
   next_quest();
 });
+
+var find_question = function(){
+  $.getJSON("all_questions.json", function(data) {
+    questions = data;
+    current_question = new Question(questions[random_number].question,questions[random_number].ps,questions[random_number].answer,questions[random_number].option1,questions[random_number].option2,questions[random_number].option3);
+    selected_questions[current_no]=current_question;
+  });
+  if(option_setting[0]===1 && current_question.)
+}
   
