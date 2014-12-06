@@ -1,4 +1,4 @@
-var settings = [1, 20, 1, 1];
+var settings = [3, 20, 1, 1];
 
 var main = function() {
   $('.mynav').click(function() {
