@@ -10,31 +10,27 @@ var current_question;
 var selected_questions=[];
 var current_no=0;
 
-var Question = function(topic,description,option1,option2,option3,option4){
+var Question = function(topic,description,option){
+  var i,temp;
+  for(i=0;i<20;i++){
+    var random_number=Math.floor(Math.random()*4);
+    var random_number2=Math.floor(Math.random()*4);
+    temp = option[random_number];
+    option[random_number] = option[random_number2];
+    option[random_number2] =temp;
+  }
   this.topic = topic;
   this.description = description;
-  this.option = { 1:option1, 2:option2, 3:option3, 4:option4 };
-};
+  this.option = { 1:option[0], 2:option[1], 3:option[2], 4:option[3] };
+}
 
 var question_init = function(){
-  selected_num = 1;
-  $.getJSON("all_questions.json", function(data) {
-    questions = data;
-    current_question = new Question(questions[0].question,questions[0].ps,questions[0].answer,questions[0].option1,questions[0].option2,questions[0].option3);
-<<<<<<< HEAD
-  }
   //alert(option_setting[0]);
   //alert(option_setting[1]);
   //alert(option_setting[2]);
   //alert(option_setting[3]);
-
-  //current_question = new Question('Hello','Test Description', 'opt1','opt2','opt3','opt4');
-  //current_question = new Question(questions[0].question,questions[0].ps,questions[0].answer,questions[0].option1,questions[0].option2,questions[0].option3);
+  find_question();
   layout_init();
-=======
-    layout_init();
->>>>>>> 8c3c858d5deefa924c61a4cf36ba894aa4e1142d
-  });
 }
 
 var layout_init = function(){
@@ -59,7 +55,6 @@ var question_display = function(){
   QuestionTag.display(current_question);
 }
 
-$(document).ready(question_init);
 
 var next_quest = function(){
   current_no++;
@@ -68,11 +63,11 @@ var next_quest = function(){
     current_no = 0;
     current_question = selected_questions[0];
   }
-  else if(selected_questions.length < option_setting[1]){
+  else if(selected_questions.length <= current_no){
     var random_number=Math.floor(Math.random()*1001);
     $.getJSON("all_questions.json", function(data) {
       questions = data;
-      current_question = new Question(questions[random_number].question,questions[random_number].ps,questions[random_number].answer,questions[random_number].option1,questions[random_number].option2,questions[random_number].option3);
+      current_question = new Question(questions[random_number].question,questions[random_number].ps,[questions[random_number].answer,questions[random_number].option1,questions[random_number].option2,questions[random_number].option3]);
       selected_questions[current_no]=current_question;
     });
   }
@@ -84,7 +79,7 @@ var next_quest = function(){
 
 var prev_quest = function(){
   current_no--;
-  var random_number=Math.floor(Math.random()*1001);
+  if(current_no<0)current_no=0;
   current_question = selected_questions[current_no];
   $("#question-placeholder").load("quest-" + question_type[q_setting] + ".html", question_display );
 }
@@ -97,15 +92,42 @@ $('.glyphicon-chevron-right').click(function() {
   next_quest();
 });
 
-<<<<<<< HEAD
 var find_question = function(){
+  //alert('QWQ');
+  var random_number=Math.floor(Math.random()*1000);
   $.getJSON("all_questions.json", function(data) {
     questions = data;
-    current_question = new Question(questions[random_number].question,questions[random_number].ps,questions[random_number].answer,questions[random_number].option1,questions[random_number].option2,questions[random_number].option3);
+    current_question = new Question(questions[random_number].question,questions[random_number].ps,[questions[random_number].answer,questions[random_number].option1,questions[random_number].option2,questions[random_number].option3]);
     selected_questions[current_no]=current_question;
   });
-  if(option_setting[0]===1 && current_question.)
+  $("#question-placeholder").load("quest-" + question_type[q_setting] + ".html", question_display );
+  //if(option_setting[0]===1 && current_question.)
+}
+
+var check_repeat = function(random_number){
+  var i;
+  for(i=0; i<selected_questions.length; i++){
+    if((selected_questions[i].id-1) == random_number){
+      return true;
+    }
+  }
+  return false;
 }
   
-=======
->>>>>>> 8c3c858d5deefa924c61a4cf36ba894aa4e1142d
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+$(document).ready(question_init);

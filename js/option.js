@@ -1,4 +1,4 @@
-settings = [1, 20, 1, 1];
+var settings = [1, 20, 1, 1];
 
 var main = function() {
   $('.mynav').click(function() {
@@ -25,7 +25,7 @@ var main = function() {
 
   $('.btn-option').click(function() {
     $('#list' + $(this).attr('data-setting') + ' span').html( $(this).html() );
-    settings[$(this).attr('data-setting')] = $(this).attr('data-option');
+    settings[$(this).attr('data-setting')-1] = $(this).attr('data-option');
   });
 
   $('.arrow-next').click(function() {
