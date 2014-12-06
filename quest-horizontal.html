@@ -63,6 +63,8 @@ $('.btn-primary').click(function() {
   }
   else{
     if( answered == 0)alert('QAQ');
+    $(this).removeClass('btn-primary');
+    $(this).addClass('btn-danger');
   }
   answered = 1;
 });
