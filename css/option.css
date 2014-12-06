@@ -10,12 +10,6 @@ body {
 .background {
 
 }
-.container {
-  border:1px solid red;
-}
-.masthead {
-  background-color: #f5f5f5;
-}
 .nav {
   margin-top: 5px;
   font-size: 30px;
@@ -23,12 +17,28 @@ body {
 .nav > .active > a:focus {
   background: none;
 }
-.mynav > a{
+.nav-justified>li>a {
+  
+}
+.mynav{
   color: #000000;
+  background: #FFFFFF;
+}
+.navleft{
+  background: -moz-linear-gradient(left,  rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(255,255,255,0)));
+  background: -webkit-linear-gradient(left,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
+  background: linear-gradient(to right,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
+}
+.navright{
+  background: -moz-linear-gradient(right,  rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+  background: -webkit-gradient(linear, right top, left top, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(255,255,255,0)));
+  background: -webkit-linear-gradient(right,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
+  background: linear-gradient(to left,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
 }
 .active {
-  border:5px solid #d3d3d3;
-  /*background-color: #d3d3d3;*/
+  /* border:5px solid #d3d3d3; */
+  /* background-color: #d3d3d3; */
 }
 
 .slider{
@@ -44,7 +54,6 @@ body {
   display: block;
   position: static;
 }
-
 
 .slider-nav {
   text-align: center;
@@ -83,29 +92,12 @@ body {
   color: #363636;
 }
 
-.button-wrapper {
-  border:1px solid red;
-}
-
-.btn1 {
+.btn-option {
   height: 220px;
   font-size: 60px;
   line-height: 200px;
-}
-.btn2{
-  height: 105px;
-  font-size: 60px;
-  line-height: 100px;
-}
-.btn3 {
-  height: 220px;
-  font-size: 60px;
-  line-height: 200px;
-}
-.btn4 {
-  height: 220px;
-  font-size: 60px;
-  line-height: 200px;
+  border-radius: 30px;
+  box-shadow: 0px 0px 22px 0px antiquewhite;
 }
 
 .btn-start {
@@ -113,4 +105,6 @@ body {
   min-height: 60px;
   line-height: 60px;
   font-size: 50px;
+  border-radius: 30px;
+  box-shadow: 0px 0px 22px 0px cornflowerblue;
 }
