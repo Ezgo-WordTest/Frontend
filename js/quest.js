@@ -67,6 +67,7 @@ var update_layout = function(){
 
 function question_display(){
   QuestionTag.display(current_question);
+  QuestionTag.updateButtonStatus( /* TODO: add answering status, this value is only for test */ 1, [2,3] );
 }
 
 var next_quest = function(){
@@ -128,8 +129,8 @@ var find_question = function(){
         questions[random_number].option1,
         questions[random_number].option2,
         questions[random_number].option3
-      ]
-      ,questions[random_number].answer
+      ],
+      questions[random_number].answer
     );
 
     selected_questions[current_no]=current_question;
