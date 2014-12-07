@@ -5,13 +5,13 @@ var main = function() {
     var id = $('.mynav').index(this);
 
     var currentSlide = $('.active_slide');
-    var nextSlide = $("#slide"+(id+1));
+    var nextSlide = $("#slide"+(id));
 
     var currentDot = $('.active-dot');
-    var nextDot = $('#dot'+(id+1));
+    var nextDot = $('#dot'+(id));
 
     var currentNav = $('.active');
-    var nextNav = $('#list'+(id+1));
+    var nextNav = $('#list'+(id));
 
     currentSlide.removeClass('active_slide');
     nextSlide.addClass('active_slide');

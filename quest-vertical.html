@@ -37,21 +37,39 @@
   </div>
 </div>
 <script>
-  var QuestionTag = {
-    Topic : '#topic',
-    Description: '#description',
-    Options:{
-      1:'#option1',
-      2:'#option2',
-      3:'#option3',
-      4:'#option4'
-    },
-    display: function(data){
-      $(this.Topic).text(data.topic);
-      $(this.Description).text(data.description);
-      for(var key in data.option){
-        $(this.Options[key]).text(data.option[key]);
-      }
+var answer;
+var answered;
+var QuestionTag = {
+  Topic : '#topic',
+  Description: '#description',
+  Options:{
+    1:'#option1',
+    2:'#option2',
+    3:'#option3',
+    4:'#option4'
+  },
+  display: function(data){
+    $(this.Topic).text(data.topic);
+    $(this.Description).text(data.description);
+    for(var key in data.option){
+      $(this.Options[key]).text(data.option[key]);
     }
-  };
+    answer = data.answer;
+    answered = 0;
+  }
+};
+
+$('.btn-primary').click(function() {
+  if( $(this).html() == answer){
+    if(answered==0)alert('YES');
+    $(this).removeClass('btn-primary');
+    $(this).addClass('btn-success');
+  }
+  else{
+    if( answered == 0)alert('NO');
+    $(this).removeClass('btn-primary');
+    $(this).addClass('btn-danger');
+  }
+  answered = 1;
+});
 </script>
