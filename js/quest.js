@@ -11,6 +11,9 @@ var selected_questions=[];
 var current_no=0;
 var avilible=0;
 
+var answer;
+var answered;
+
 var Question = function(topic,description,option,answer){
   var i,temp;
   for(i=0;i<20;i++){
@@ -26,17 +29,11 @@ var Question = function(topic,description,option,answer){
   this.answer = answer;
 }
 
-var question_init = function(){
-  /*alert(option_setting[0]);
-  alert(option_setting[1]);
-  alert(option_setting[2]);
-  alert(option_setting[3]);*/
-  find_question();
-  layout_init();
+function quest_init(){
+  $("#question-placeholder").load("quest-" + question_type[q_setting] + ".html",layout_init);
 }
 
-var layout_init = function(){
-  switch_layout();
+function layout_init(){
   $('#option-button').click(function(){
     $('#popup-option').toggleClass('popup-active');
   });
@@ -44,76 +41,108 @@ var layout_init = function(){
     $('#popup-option').toggleClass('popup-active');
   });
   $('.mode-select').click(function(){
-     q_setting = $(this).attr('data');
-     switch_layout();
+    q_setting = $(this).attr('data');
+    update_layout();
   });
+  $('.btn-primary').click(function() {
+    if( $(this).html() == answer){
+      if(answered == 0)console.log('Correct!');
+        $(this).removeClass('btn-primary');
+      $(this).addClass('btn-success');
+    }
+    else{
+      if( answered == 0)console.log('Wrong!');
+        $(this).removeClass('btn-primary');
+      $(this).addClass('btn-danger');
+    }
+    answered = 1;
+  });
+  /* after layout has been initialized, find first question */
+  find_question();
 }
 
-var switch_layout = function(){
-  $("#question-placeholder").load("quest-" + question_type[q_setting] + ".html", question_display );
+var update_layout = function(){
+  $("#question-placeholder").load("quest-" + question_type[q_setting] + ".html");
 }
 
-var question_display = function(){
+function question_display(){
   QuestionTag.display(current_question);
 }
 
-
 var next_quest = function(){
   current_no++;
-  //alert(selected_questions.length);
+
+  /* Exceed question count */
   if(current_no >= option_setting[1]){
     $("#end-test").removeClass("btn-danger");
     $("#end-test").addClass("btn-success");
     current_no = 0;
     current_question = selected_questions[0];
-    $("#question-placeholder").load("quest-" + question_type[q_setting] + ".html", question_display );
   }
+
+  /* need to find new question */
   else if(selected_questions.length <= current_no){
-    //alert('find~')
     find_question();
   }
+
+  /* just switch to question that had been found */
   else{
     current_question = selected_questions[current_no];
-    $("#question-placeholder").load("quest-" + question_type[q_setting] + ".html", question_display );
   }
+  question_display();
 }
 
 var prev_quest = function(){
   current_no--;
   if(current_no<0)current_no=0;
-  current_question = selected_questions[current_no];
-  $("#question-placeholder").load("quest-" + question_type[q_setting] + ".html", question_display );
+    current_question = selected_questions[current_no];
+  question_display();
 }
 
-$('.glyphicon-chevron-left').click(function() {
+$('#question-prev').click(function() {
   prev_quest();
 });
 
-$('.glyphicon-chevron-right').click(function() {
+$('#question-next').click(function() {
   next_quest();
 });
 
 var find_question = function(){
-  //alert('QWQ');
-  $.getJSON("all_questions.json", function(data) {
-    var random_number=Math.floor(Math.random()*1000);
-    while(check_repeat(random_number)==true){
-      random_number=Math.floor(Math.random()*1000);
-    }
-    questions = data;
-    //alert(questions[random_number].category);
-    //alert(option_setting[0]);
+  /* Load all question from JSON file */
+  $.getJSON("all_questions.json", function(questions) {
+    var random_number = getRandomQuestionID();
+
+    /* Check if question category is satisfied */
     while(questions[random_number].category=="0" && option_setting[0]==1){
-      random_number=Math.floor(Math.random()*1000);
+      random_number = getRandomQuestionID();
     }
     while(questions[random_number].category=="1" && option_setting[0]==2){
-      random_number=Math.floor(Math.random()*1000);
+      random_number = getRandomQuestionID();
     }
-    current_question = new Question(questions[random_number].question,questions[random_number].ps,[questions[random_number].answer,questions[random_number].option1,questions[random_number].option2,questions[random_number].option3],questions[random_number].answer);
+
+    current_question = new Question(
+      questions[random_number].question,
+      questions[random_number].ps,
+      [
+        questions[random_number].answer,
+        questions[random_number].option1,
+        questions[random_number].option2,
+        questions[random_number].option3
+      ]
+      ,questions[random_number].answer
+    );
+
     selected_questions[current_no]=current_question;
-    $("#question-placeholder").load("quest-" + question_type[q_setting] + ".html", question_display );
+    question_display();
   });
-  //if(option_setting[0]==1 && current_question.)
+}
+
+function getRandomQuestionID(){
+  do{
+    /* If repeated, try again */
+    random_number=Math.floor(Math.random()*1000);
+  }while( check_repeat(random_number) );
+    return random_number;
 }
 
 var check_repeat = function(random_number){
@@ -125,24 +154,9 @@ var check_repeat = function(random_number){
   }
   return false;
 }
-  
+
 $("#end-test").click(function() {
-  alert('WOW');
+  console.log('End Test');
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-$(document).ready(question_init);
+$(document).ready(quest_init);

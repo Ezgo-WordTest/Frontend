@@ -37,8 +37,6 @@
   </div>
 </div>
 <script>
-var answer;
-var answered;
 var QuestionTag = {
   Topic : '#topic',
   Description: '#description',
@@ -58,18 +56,4 @@ var QuestionTag = {
     answered = 0;
   }
 };
-
-$('.btn-primary').click(function() {
-  if( $(this).html() == answer){
-    if(answered==0)alert('YES');
-    $(this).removeClass('btn-primary');
-    $(this).addClass('btn-success');
-  }
-  else{
-    if( answered == 0)alert('NO');
-    $(this).removeClass('btn-primary');
-    $(this).addClass('btn-danger');
-  }
-  answered = 1;
-});
 </script>

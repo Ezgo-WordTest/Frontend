@@ -7,8 +7,8 @@
     <p style=" font-size:1.3em" id="description">題目描述</p>
     <hr>
     <div class="row">
-      <div class="col-md-3" onClick="" style="cursor:pointer">
 
+      <div id="option1" class="col-md-3" onClick="" style="cursor:pointer">
         <div class="row" style="background-color:#EEE; opacity:0.7; margin:auto;border:#00bfff 1px solid;" onMouseDown="this.style.backgroundColor='#4C9ED9'">
           <div class ="col-md-3 col-md-offset-4" style="font-size:2em;" id="s1mark">
             <br>ㄧ<br><br>
@@ -17,11 +17,10 @@
             <br>ˇ<br>
           </div>
         </div>
-
       </div>
-      <div class="col-md-3" onClick="" style="cursor:pointer">
 
-        <div class="row" style="background-color:#EEE; opacity:0.7; margin:auto; border:#00bfff 1px solid; " onMouseDown="this.style.backgroundColor='#4C9ED9'">
+      <div class="col-md-3" onClick="" style="cursor:pointer">
+        <div id="option2" class="row" style="background-color:#EEE; opacity:0.7; margin:auto; border:#00bfff 1px solid; " onMouseDown="this.style.backgroundColor='#4C9ED9'">
           <div class ="col-md-3 col-md-offset-4" style="font-size:2em; line-height:2.15" id="s2mark">
             ㄧ<br>ㄠ
           </div>
@@ -29,11 +28,10 @@
             <br>ˋ<br>
           </div>
         </div>
-
       </div>
-      <div class="col-md-3" onClick="" style="cursor:pointer">
 
-        <div class="row" style="background-color:#EEE; opacity:0.7; margin:auto;border:#00bfff 1px solid;" onMouseDown="this.style.backgroundColor='#4C9ED9'">
+      <div class="col-md-3" onClick="" style="cursor:pointer">
+        <div id="option3" class="row" style="background-color:#EEE; opacity:0.7; margin:auto;border:#00bfff 1px solid;" onMouseDown="this.style.backgroundColor='#4C9ED9'">
           <div class ="col-md-3 col-md-offset-4" style="font-size:2em; line-height:2.15" id="s3mark">
             ㄌ<br>ㄠ
           </div>
@@ -41,11 +39,10 @@
             <br>ˋ<br>
           </div>
         </div>
-
       </div>
-      <div class="col-md-3" onClick="" style="cursor:pointer">
 
-        <div class="row" style="background-color:#EEE; opacity:0.7; margin:auto;border:#00bfff 1px solid;" onMouseDown="this.style.backgroundColor='#4C9ED9'">
+      <div class="col-md-3" onClick="" style="cursor:pointer">
+        <div id="option4" class="row" style="background-color:#EEE; opacity:0.7; margin:auto;border:#00bfff 1px solid;" onMouseDown="this.style.backgroundColor='#4C9ED9'">
           <div class ="col-md-3 col-md-offset-4" style="font-size:2em;" id="s4mark">
             ㄌ<br>ㄧ<br>ㄠ
           </div>
@@ -53,12 +50,13 @@
             <br>ˇ<br>
           </div>
         </div>
-      </div>			
+      </div>
+
     </div>
     <hr/>
     <br/>
   </div>
-</div> 
+</div>
 <script>
 var mark = /[^ˋˊˇ]+/;
 var tone = /[ˋˊˇ]/;
@@ -66,10 +64,10 @@ var QuestionTag = {
   Topic : '#topic',
   Description: '#description',
   Options:{
-    '1m':'#s1mark','1t':'#s1tone',
-    '2m':'#s2mark','2t':'#s2tone',
-    '3m':'#s3mark','3t':'#s3tone',
-    '4m':'#s4mark','4t':'#s4tone'
+    1:'#option1','1m':'#s1mark','1t':'#s1tone',
+    2:'#option2','2m':'#s2mark','2t':'#s2tone',
+    3:'#option3','3m':'#s3mark','3t':'#s3tone',
+    4:'#option4','4m':'#s4mark','4t':'#s4tone'
   },
   display: function(data){
     $(this.Topic).text(data.topic);
