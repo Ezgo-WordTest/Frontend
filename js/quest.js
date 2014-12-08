@@ -49,25 +49,25 @@ function layout_init(){
     q_setting = $(this).attr('data');
     update_layout();
   });
-  setTimeout(test,500);
+  setTimeout(test,1000);
   /* after layout has been initialized, find first question */
   find_question();
 }
 
 function test () {
-    $('.btn-primary').click(function() {
+    $('.option-clear').click(function() {
     //alert('press button!');
     if( $(this).html() == answer){
       if(answered == 0)console.log('Correct!');
-        $(this).removeClass('btn-primary');
-      $(this).addClass('btn-success');
-      selected_questions[current_no].selected_options[selected_questions[current_no].selected_options.length] = this.index()+1;
+        $(this).removeClass('option-clear');
+      $(this).addClass('option-correct');
+      selected_questions[current_no].selected_options[selected_questions[current_no].selected_options.length] = $('.option').index(this)+1;
     }
     else{
       if( answered == 0)console.log('Wrong!');
-        $(this).removeClass('btn-primary');
-      $(this).addClass('btn-danger');
-      selected_questions[current_no].selected_answer = this.index()+1;
+        $(this).removeClass('option-clear');
+      $(this).addClass('option-wrong');
+      selected_questions[current_no].selected_answer = $('.option').index(this)+1;
     }
     answered = 1;
   });
