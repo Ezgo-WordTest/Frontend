@@ -11,6 +11,9 @@ var selected_questions=[];
 var current_no=0;
 var avilible=0;
 
+var right = 0;
+var wrong = 0;
+
 var Question = function(topic, description, option){
   var temp;
   // randomize (swap) options, 20 times might be enough
@@ -72,6 +75,7 @@ function btn_event() {
       current_question.selected_answer = answer;
       if(current_question.result == 0){
         current_question.result = 1;
+        right++;
         // Corrert, add point!
       }else{
         current_question.result = 3;
@@ -82,10 +86,21 @@ function btn_event() {
         if(current_question.selected_options[i] == pressed )return; // Pressed selected option
       }
       current_question.selected_options[current_question.selected_options.length] = pressed;
+      if(current_question.result != 2){
+        // Wrong!
+        wrong++;
+      }
       current_question.result = 2;
     }
     QuestionTag.updateButtonStatus(current_question.selected_answer, current_question.selected_options);
+    updateScore();
   });
+}
+
+function updateScore(){
+  $('#score').text(100/option_setting[1]*right);
+  $('#right').text(right);
+  $('#wrong').text(wrong);
 }
 
 function question_display(){
