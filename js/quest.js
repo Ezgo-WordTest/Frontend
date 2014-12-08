@@ -197,6 +197,7 @@ var check_repeat = function(random_number){
 
 $("#end-test").click(function() {
   console.log('End Test');
+  $('#main-block').load('newGrade.html');
 });
 
 $(document).ready(quest_init);
