@@ -11,15 +11,21 @@ var selected_questions=[];
 var current_no=0;
 var avilible=0;
 
-var answer;
-var answered;
+var right = 0;
+var wrong = 0;
 
-var Question = function(topic, description, option, answer){
+var Question = function(topic, description, option){
   var temp;
   // randomize (swap) options, 20 times might be enough
-  for(i=0; i<20; i++){ 
+  var ans = 1;
+  for(i=0; i<20; i++){
     var random_number = Math.floor(Math.random()*4);
     var random_number2 = Math.floor(Math.random()*4);
+    if(ans == random_number+ 1){
+      ans= random_number2 + 1;
+    } else if(ans == random_number2 + 1){
+      ans= random_number + 1;
+    }
     temp = option[random_number];
     option[random_number] = option[random_number2];
     option[random_number2] =temp;
@@ -27,9 +33,10 @@ var Question = function(topic, description, option, answer){
   this.topic = topic;
   this.description = description;
   this.option = { 1:option[0], 2:option[1], 3:option[2], 4:option[3] };
-  this.answer = answer;
+  this.answer = ans;
   this.selected_options = [];
   this.selected_answer = 0;
+  this.result = 0; // 0: not yet answer, 1: correct, 2: wrong, 3: correct after wrong try
 }
 
 function quest_init(){
@@ -48,34 +55,52 @@ function layout_init(){
   $('.mode-select').click(function(){
     q_setting = $(this).attr('data');
     update_layout();
+    setTimeout(question_display,200);
+    setTimeout(btn_event,200);
   });
-  setTimeout(test,1000);
   /* after layout has been initialized, find first question */
+  setTimeout(btn_event,200);
   find_question();
 }
 
-function test () {
-    $('.option-clear').click(function() {
-    //alert('press button!');
-    if( $(this).html() == answer){
-      if(answered == 0)console.log('Correct!');
-        $(this).removeClass('option-clear');
-      $(this).addClass('option-correct');
-      selected_questions[current_no].selected_options[selected_questions[current_no].selected_options.length] = $('.option').index(this)+1;
+function update_layout(){
+  $("#question-placeholder").load("quest-" + question_type[q_setting] + ".html");
+}
+function btn_event() {
+  $('#option1, #option2, #option3, #option4').click(function() {
+    var pressed = $(this).attr('id')[6];
+    if( current_question.result == 1 || current_question.result == 3 ) return; // Already correct
+    console.log(current_question.answer);
+    if( current_question.answer == pressed ){
+      current_question.selected_answer = answer;
+      if(current_question.result == 0){
+        current_question.result = 1;
+        right++;
+        // Corrert, add point!
+      }else{
+        current_question.result = 3;
+        // Corrert after retry
+      }
+    }else{
+      for(var i in current_question.selected_options){
+        if(current_question.selected_options[i] == pressed )return; // Pressed selected option
+      }
+      current_question.selected_options[current_question.selected_options.length] = pressed;
+      if(current_question.result != 2){
+        // Wrong!
+        wrong++;
+      }
+      current_question.result = 2;
     }
-    else{
-      if( answered == 0)console.log('Wrong!');
-        $(this).removeClass('option-clear');
-      $(this).addClass('option-wrong');
-      selected_questions[current_no].selected_answer = $('.option').index(this)+1;
-    }
-    answered = 1;
+    QuestionTag.updateButtonStatus(current_question.selected_answer, current_question.selected_options);
+    updateScore();
   });
 }
 
-var update_layout = function(){
-  //alert('update_layout!');
-  $("#question-placeholder").load("quest-" + question_type[q_setting] + ".html");
+function updateScore(){
+  $('#score').text(100/option_setting[1]*right);
+  $('#right').text(right);
+  $('#wrong').text(wrong);
 }
 
 function question_display(){
@@ -144,8 +169,7 @@ var find_question = function(){
         questions[random_number].option1,
         questions[random_number].option2,
         questions[random_number].option3
-      ],
-      questions[random_number].answer
+      ]
     );
     //alert(current_question.topic+' QWQ2');
     selected_questions[current_no]=current_question;

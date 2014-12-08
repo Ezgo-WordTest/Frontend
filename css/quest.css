@@ -5,6 +5,15 @@
   animation-fill-mode: forwards;
 }
 
+#option-button{
+  display:none;
+}
+@media screen and (min-width: 767px){
+  #option-button{
+    display:block;
+  }
+}
+
 .popup{
   position: fixed;
   left: 0;
