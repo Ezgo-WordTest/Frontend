@@ -1,5 +1,5 @@
 // Display mode selection
-var question_type = ["vertical", "horizontal", "horizontal2","summary"];
+var question_type = ["vertical", "horizontal", "horizontal2"];
 var all_questions;
 
 var q_setting = 1;
@@ -14,11 +14,12 @@ var avilible=0;
 var answer;
 var answered;
 
-var Question = function(topic,description,option,answer){
-  var i,temp;
-  for(i=0;i<20;i++){
-    var random_number=Math.floor(Math.random()*4);
-    var random_number2=Math.floor(Math.random()*4);
+var Question = function(topic, description, option, answer){
+  var temp;
+  // randomize (swap) options, 20 times might be enough
+  for(i=0; i<20; i++){ 
+    var random_number = Math.floor(Math.random()*4);
+    var random_number2 = Math.floor(Math.random()*4);
     temp = option[random_number];
     option[random_number] = option[random_number2];
     option[random_number2] =temp;
@@ -27,6 +28,8 @@ var Question = function(topic,description,option,answer){
   this.description = description;
   this.option = { 1:option[0], 2:option[1], 3:option[2], 4:option[3] };
   this.answer = answer;
+  this.selected_options = [];
+  this.selected_answer = 0;
 }
 
 function quest_init(){
@@ -34,6 +37,8 @@ function quest_init(){
 }
 
 function layout_init(){
+  //alert('layout init !');
+  update_layout();
   $('#option-button').click(function(){
     $('#popup-option').toggleClass('popup-active');
   });
@@ -44,30 +49,39 @@ function layout_init(){
     q_setting = $(this).attr('data');
     update_layout();
   });
-  $('.btn-primary').click(function() {
+  setTimeout(test,500);
+  /* after layout has been initialized, find first question */
+  find_question();
+}
+
+function test () {
+    $('.btn-primary').click(function() {
+    //alert('press button!');
     if( $(this).html() == answer){
       if(answered == 0)console.log('Correct!');
         $(this).removeClass('btn-primary');
       $(this).addClass('btn-success');
+      selected_questions[current_no].selected_options[selected_questions[current_no].selected_options.length] = this.index()+1;
     }
     else{
       if( answered == 0)console.log('Wrong!');
         $(this).removeClass('btn-primary');
       $(this).addClass('btn-danger');
+      selected_questions[current_no].selected_answer = this.index()+1;
     }
     answered = 1;
   });
-  /* after layout has been initialized, find first question */
-  find_question();
 }
 
 var update_layout = function(){
+  //alert('update_layout!');
   $("#question-placeholder").load("quest-" + question_type[q_setting] + ".html");
 }
 
 function question_display(){
+  //alert('question_display!');
   QuestionTag.display(current_question);
-  QuestionTag.updateButtonStatus( /* TODO: add answering status, this value is only for test */ 1, [2,3] );
+  QuestionTag.updateButtonStatus(current_question.selected_answer, current_question.selected_options);
 }
 
 var next_quest = function(){
@@ -109,18 +123,19 @@ $('#question-next').click(function() {
 });
 
 var find_question = function(){
+  //alert('find question!');
   /* Load all question from JSON file */
   $.getJSON("all_questions.json", function(questions) {
     var random_number = getRandomQuestionID();
 
     /* Check if question category is satisfied */
     while(questions[random_number].category=="0" && option_setting[0]==1){
-      random_number = getRandomQuestionID();
+      random_number = getRandomQuestionID();//check category
     }
     while(questions[random_number].category=="1" && option_setting[0]==2){
       random_number = getRandomQuestionID();
     }
-
+    //alert(questions[random_number].question+' QWQ');
     current_question = new Question(
       questions[random_number].question,
       questions[random_number].ps,
@@ -132,7 +147,7 @@ var find_question = function(){
       ],
       questions[random_number].answer
     );
-
+    //alert(current_question.topic+' QWQ2');
     selected_questions[current_no]=current_question;
     question_display();
   });
