@@ -1,4 +1,4 @@
-var main = function() {
+var grade = function() {
   $('.icon-option').click(function() {
     $('.option').animate({left: "0px"}, 400);
   });
@@ -7,10 +7,10 @@ var main = function() {
   });
   $('.back').click(function() {
     $('#main-block').load('option.html');
-  });  
+  });
   $('.answer').click(function() {
     //show anser
-  });  
+  });
 };
 
-$(document).ready(main);
+$(document).ready(grade);
