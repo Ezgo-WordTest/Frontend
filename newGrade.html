@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quest_hor</title>
+    <!-- Bootstrap -->
+	<link href="css/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap/bootstrap-theme.min.css" rel="stylesheet">
+  </head>
+  <body>
+	<script src="http://code.jquery.com/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+    <script src="js/newGrade.js"></script>
+<div class="container">
+	<div class ="jumbotron">
+    	<!--div align="center">
+    		<img id="pictureStatus" src="doge.jpeg" class="img-circle" height="180" width="175" style="border:double #FC0">
+    	</div-->
+        <br/>
+        <div class="well well-small" style="background:#FFF; font-size:24px;font-family:Microsoft JhengHei;">
+            答對題數：<span id="correct-table"></span>
+        </div>
+        <div class="well well-small" style="background:#FFF; font-size:24px;font-family:Microsoft JhengHei;">
+            答錯題數：<span id="wrong-table"></span>
+        </div>
+        <!--div>
+        	<p id="statement" style=" font-size:24px;font-family:Microsoft JhengHei" align="center">
+            	Wow ，你得了一百分~
+            </p>
+        </div-->
+        <hr>
+        <div class="well well-small" style="background:#FFF" align="center">
+    		<span style=" font-size:24px;font-family:Microsoft JhengHei;">總分</span><hr>
+            <span style=" font-size:24px;font-family:Microsoft JhengHei;" id="score-table"></span>
+        </div>
+        <hr>        
+        <div class="row" align="center">
+        	<!--div class="col-md-5 col-md-offset-5" style="font-size:2.8em">
+            	<a href="#"><span class="glyphicon glyphicon-chevron-left" style="color:#000; opacity:0.5"></span></a>&nbsp&nbsp&nbsp<a href="#"><span class="glyphicon glyphicon-chevron-right" style="color:#000; opacity:0.5"></span></a>
+        	</div-->
+             <div class="btn btn-lg btn-danger" id="end">
+                結束測驗
+            </div>
+            <div class="btn btn-lg btn-success" id="restart">
+                再來一次！
+            </div>
+        </div>
+  </div>
+</div> 
+  </body>
+</html>
