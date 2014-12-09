@@ -1,5 +1,3 @@
-var settings = [3, 20, 1, 1];
-
 var grade_main = function() {
   setTimeout(grade_display,200);
   
