@@ -1,12 +1,10 @@
 var settings = [3, 20, 1, 1];
 
-var main = function() {
-  $('#correct-table').text(right);
-  $('#wrong-table').text(wrong);
-  $('#score-table').text(100/option_setting[1]*right);
-
+var grade_main = function() {
+  setTimeout(grade_display,200);
+  
   $('#end').click(function() {
-    window.open('','_self').close();
+    //should close window, not yet find a good method
   });
 
   $('#restart').click(function() {
@@ -15,4 +13,11 @@ var main = function() {
   });
 }
 
-$(document).ready(main);
+var grade_display = function(){
+  $('#correct-table').text(right);
+  $('#wrong-table').text(wrong);
+  $('#score-table').text(100/option_setting[1]*right);
+
+}
+
+$(document).ready(grade_main);
