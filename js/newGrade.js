@@ -6,7 +6,7 @@ var grade_main = function() {
   });
 
   $('#restart').click(function() {
-    $('#main-block').load('index.html');
+    $('#main-block').load('option.html');
     selected_questions = [];
   });
 }
