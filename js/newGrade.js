@@ -1,9 +1,5 @@
 var grade_main = function() {
   setTimeout(grade_display,200);
-  
-  $('#end').click(function() {
-    //should close window, not yet find a good method
-  });
 
   $('#restart').click(function() {
     $('#main-block').load('option.html');

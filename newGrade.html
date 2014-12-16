@@ -1,22 +1,23 @@
 <div class="container">
   <div class ="jumbotron">
     <br/>
-    <div class="well well-small" style="background:#FFF; font-size:24px;">
+    <div class="container">
+    <div class="col-md-5 well well-small" id="correct">
+      <img src="image/Boton_correct.png">
       答對題數：<span id="correct-table"></span>
     </div>
-    <div class="well well-small" style="background:#FFF; font-size:24px;">
+    <div class="col-md-5 col-md-offset-2 well well-small" id="wrong">
+      <img src="image/Boton_wrong.png">
       答錯題數：<span id="wrong-table"></span>
     </div>
+    </div>
     <hr>
-    <div class="well well-small" style="background:#FFF" align="center">
+    <div class="well well-small" align="center" id="score">
       <span style=" font-size:24px;">總分</span><hr>
-      <span style=" font-size:24px;" id="score-table"></span>
+      <span style=" font-size:40px;" id="score-table"></span>
     </div>
     <hr>
     <div class="row" align="center">
-      <div class="btn btn-lg btn-danger" id="end">
-        結束測驗
-      </div>
       <div class="btn btn-lg btn-success" id="restart">
         再來一次！
       </div>
@@ -24,3 +25,24 @@
   </div>
 </div>
 <script src="js/newGrade.js"></script>
+
+<style>
+  #correct{
+    border: 5px solid green;
+    background-size: cover;
+    border-radius: 30px;
+    box-shadow: 0px 0px 22px 0px antiquewhite;
+  }
+  #wrong{
+    border: 5px solid red;
+    background-size: cover;
+    border-radius: 30px;
+    box-shadow: 0px 0px 22px 0px antiquewhite;
+  }
+  #score{
+    border: 5px solid grey;
+  }
+  .well{
+    font-size:24px;
+  }
+</style>
