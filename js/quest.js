@@ -154,10 +154,10 @@ var find_question = function(){
     var random_number = getRandomQuestionID();
 
     /* Check if question category is satisfied */
-    while(questions[random_number].category=="0" && option_setting[0]==1){
+    while((questions[random_number].category=="0" && option_setting[0]==1) || check_repeat(random_number)){
       random_number = getRandomQuestionID();//check category
     }
-    while(questions[random_number].category=="1" && option_setting[0]==2){
+    while((questions[random_number].category=="1" && option_setting[0]==2) || check_repeat(random_number)){
       random_number = getRandomQuestionID();
     }
     //alert(questions[random_number].question+' QWQ');
