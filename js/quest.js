@@ -1,5 +1,6 @@
 // Display mode selection
 var question_type = ["vertical", "horizontal", "horizontal2"];
+var MAX_NUM = 1000;
 var all_questions;
 
 var q_setting = 1;
@@ -14,7 +15,7 @@ var avilible=0;
 var right = 0;
 var wrong = 0;
 
-var Question = function(topic, description, option){
+var Question = function(topic, description, id, option){
   var temp;
   // randomize (swap) options, 20 times might be enough
   var ans = 1;
@@ -30,6 +31,7 @@ var Question = function(topic, description, option){
     option[random_number] = option[random_number2];
     option[random_number2] =temp;
   }
+  this.id = id;
   this.topic = topic;
   this.description = description;
   this.option = { 1:option[0], 2:option[1], 3:option[2], 4:option[3] };
@@ -154,16 +156,18 @@ var find_question = function(){
     var random_number = getRandomQuestionID();
 
     /* Check if question category is satisfied */
-    while((questions[random_number].category=="0" && option_setting[0]==1) || check_repeat(random_number)){
+    while(questions[random_number].category=="0" && option_setting[0]==1){
       random_number = getRandomQuestionID();//check category
     }
-    while((questions[random_number].category=="1" && option_setting[0]==2) || check_repeat(random_number)){
+    while(questions[random_number].category=="1" && option_setting[0]==2){
       random_number = getRandomQuestionID();
     }
     //alert(questions[random_number].question+' QWQ');
+    //alert(questions[random_number].id);
     current_question = new Question(
       questions[random_number].question,
       questions[random_number].ps,
+      questions[random_number].id,
       [
         questions[random_number].answer,
         questions[random_number].option1,
@@ -178,9 +182,10 @@ var find_question = function(){
 }
 
 function getRandomQuestionID(){
+  var random_number;
   do{
     /* If repeated, try again */
-    random_number=Math.floor(Math.random()*1000);
+    random_number=Math.floor(Math.random()*MAX_NUM);
   }while( check_repeat(random_number) );
     return random_number;
 }
