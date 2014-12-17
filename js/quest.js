@@ -48,6 +48,7 @@ function quest_init(){
 function layout_init(){
   //alert('layout init !');
   update_layout();
+
   $('#option-button').click(function(){
     $('#popup-option').toggleClass('popup-active');
   });
@@ -55,13 +56,14 @@ function layout_init(){
     $('#popup-option').toggleClass('popup-active');
   });
   $('.mode-select').click(function(){
+    setTimeout(update_layout,50);
     q_setting = $(this).attr('data');
     update_layout();
-    setTimeout(question_display,200);
-    setTimeout(btn_event,200);
+    setTimeout(question_display,300);
+    setTimeout(btn_event,300);
   });
   /* after layout has been initialized, find first question */
-  setTimeout(btn_event,200);
+  setTimeout(btn_event,300);
   find_question();
 }
 
