@@ -1,4 +1,5 @@
 body {
+  font-family: "TW-MOE-Std-Kai", "正規";,"AR PL UKai TW"; /* Not sure the font name */
   min-height: 100%;
   background-image: url('../image/background.jpg');
   background-repeat: repeat-x;
