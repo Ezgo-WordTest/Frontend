@@ -9,10 +9,15 @@ h1.head
   border-style:solid;
   font-size:30px;
 }
+
 p.footer
 {
   border-style:solid;
+  color: black;
+  font-size: 24px;
+  background-color: white;
 }
+
 body,
 h1,
 h2,
