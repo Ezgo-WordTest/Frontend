@@ -3,7 +3,7 @@ var question_type = ["vertical", "horizontal", "horizontal2"];
 var MAX_NUM = 1000;
 var all_questions;
 
-var q_setting = 1;
+var q_setting = 2;
 var option_setting;
 var questions;
 var current_question;
