@@ -154,7 +154,7 @@ $('#question-next').click(function() {
 var find_question = function(){
   //alert('find question!');
   /* Load all question from JSON file */
-  $.getJSON("all_questions.json", function(questions) {
+  $.getJSON("assets/all_questions.json", function(questions) {
     var random_number = getRandomQuestionID();
 
     /* Check if question category is satisfied */
