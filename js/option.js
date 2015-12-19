@@ -1,84 +1,43 @@
 var settings = [3, 20, 1, 1];
 
-var main = function() {
-  $('.mynav').click(function() {
-    var id = $('.mynav').index(this);
+function init() {
+  var activeIndex = 0;
+  var optionTypeCount = $('.nav-optiontype').children().length;
 
-    var currentSlide = $('.active_slide');
-    var nextSlide = $("#slide"+(id));
+  function updateActiveItem(id){
+    $("#slide"+activeIndex).removeClass('active');
+    $("#slide"+id).addClass('active');
 
-    var currentDot = $('.active-dot');
-    var nextDot = $('#dot'+(id));
+    $('#dot'+activeIndex).removeClass('active');
+    $('#dot'+id).addClass('active');
 
-    var currentNav = $('.active');
-    var nextNav = $('#list'+(id));
+    $('#list'+activeIndex).removeClass('active');
+    $('#list'+id).addClass('active');
 
-    currentSlide.removeClass('active_slide');
-    nextSlide.addClass('active_slide');
+    activeIndex = id;
+  }
 
-    currentDot.removeClass('active-dot');
-    nextDot.addClass('active-dot');
-
-    currentNav.removeClass('active');
-    nextNav.addClass('active');
+  $('.nav-optiontype').on('click',function(e) {
+    var id = $(e.target).index();
+    updateActiveItem(id);
   });
 
-  $('.btn-option').click(function() {
-    $('#list' + $(this).attr('data-setting') + ' span').html( $(this).html() );
-    settings[$(this).attr('data-setting')] = $(this).attr('data-option');
+  $('.dots').on('click',function(e) {
+    var id = $(e.target).index();
+    updateActiveItem(id);
   });
 
   $('.arrow-next').click(function() {
-    var currentSlide = $('.active_slide');
-    var nextSlide = currentSlide.next();
-
-    var currentDot = $('.active-dot');
-    var nextDot = currentDot.next();
-
-    var currentNav = $('.active');
-    var nextNav = currentNav.next();
-
-    if(nextSlide.length === 0) {
-      nextSlide = $('.slide').first();
-      nextDot = $('.dot').first();
-      nextNav = $('.mynav').first();
-    }
-
-    currentSlide.removeClass('active_slide');
-    nextSlide.addClass('active_slide');
-
-    currentDot.removeClass('active-dot');
-    nextDot.addClass('active-dot');
-
-    currentNav.removeClass('active');
-    nextNav.addClass('active');
+    updateActiveItem((activeIndex + 1 >= optionTypeCount) ? 0 : activeIndex + 1);
+  });
+  $('.arrow-prev').click(function() {
+    updateActiveItem((activeIndex - 1 < 0) ? optionTypeCount - 1 : activeIndex - 1);
   });
 
-
-  $('.arrow-prev').click(function() {
-    var currentSlide = $('.active_slide');
-    var prevSlide = currentSlide.prev();
-
-    var currentDot = $('.active-dot');
-    var prevDot = currentDot.prev();
-
-    var currentNav = $('.active');
-    var nextNav = currentNav.prev();
-
-    if(prevSlide.length === 0) {
-      prevSlide = $('.slide').last();
-      prevDot = $('.dot').last();
-      nextNav = $('.mynav').last();
-    }
-
-    currentSlide.removeClass('active_slide');
-    prevSlide.addClass('active_slide');
-
-    currentDot.removeClass('active-dot');
-    prevDot.addClass('active-dot');
-
-    currentNav.removeClass('active');
-    nextNav.addClass('active');
+  $('.btn-option').click(function() {
+    $('#list' + $(this).attr('data-setting')).html( $(this).html() );
+    settings[$(this).attr('data-setting')] = $(this).attr('data-option');
+    updateActiveItem((activeIndex + 1 >= optionTypeCount) ? activeIndex : activeIndex + 1);
   });
 
   $('#start-button').click(function(){
@@ -87,4 +46,4 @@ var main = function() {
   });
 }
 
-$(document).ready(main);
+$(document).ready(init);

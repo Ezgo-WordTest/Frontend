@@ -1,3 +1,5 @@
+@import "compass";
+
 body {
   /*border:1px solid blue;
   margin: 0;
@@ -7,55 +9,40 @@ body {
   background-size: cover;
 */}
 
-.background {
-
-}
-.nav {
+.nav-optiontype {
   margin-top: 5px;
-  font-size: 30px;
+  padding-left: 10%;
+  @include background-image(linear-gradient(to right, rgba(255,255,255,0), white 10%, white 90%, rgba(255,255,255,0)));
 }
-.nav > .active > a:focus {
-  background: none;
-}
-.nav-justified>li>a {
-  
-}
-.mynav{
+
+.nav-optiontype > li{
+  font-size: 2.5em;
+  text-align: center;
+  width: 20%;
   color: #000000;
   background: #FFFFFF;
 }
-.navleft{
-  background: -moz-linear-gradient(left,  rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
-  background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(255,255,255,0)));
-  background: -webkit-linear-gradient(left,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
-  background: linear-gradient(to right,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
-}
-.navright{
-  background: -moz-linear-gradient(right,  rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
-  background: -webkit-gradient(linear, right top, left top, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(255,255,255,0)));
-  background: -webkit-linear-gradient(right,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
-  background: linear-gradient(to left,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
-}
-.active {
-  /* border:5px solid #d3d3d3; */
-  /* background-color: #d3d3d3; */
+
+.nav-optiontype > li:hover{
+  background: #cccccc;
 }
 
-.slider{
-  min-height: 300px;
+
+.nav-optiontype > li .active {
+  border:5px solid #d3d3d3;
+  background-color: #d3d3d3;
 }
+
 .slide {
   display: none;
-  position: absolute;
   margin-top: 20px;
 }
 
-.active_slide {
+.active{
   display: block;
-  position: static;
 }
 
-.slider-nav {
+.arrow-and-dots{
   text-align: center;
   margin-top: 20px;
 }
@@ -74,28 +61,25 @@ body {
   margin-top: 9px;
 }
 
-.slider-dots {
+.dots {
   list-style: none;
   display: inline-block;
   padding-left: 0;
-  margin-bottom: 0;
 }
 
-.slider-dots li {
+.dots li {
+  cursor: pointer;
   color: #bbbcbc;
   display: inline;
-  font-size: 30px;
-  margin-right: 5px;
+  font-size: 2em;
 }
 
-.slider-dots li.active-dot {
+.dots li.active{
   color: #363636;
 }
 
 .btn-option {
-  height: 220px;
-  font-size: 60px;
-  line-height: 200px;
+  font-size: 4em;
   border-radius: 30px;
   box-shadow: 0px 0px 22px 0px antiquewhite;
 }
@@ -103,8 +87,7 @@ body {
 .btn-start {
   margin-top: 20px;
   min-height: 60px;
-  line-height: 60px;
-  font-size: 50px;
+  font-size: 3.5em;
   border-radius: 30px;
   box-shadow: 0px 0px 22px 0px cornflowerblue;
 }
