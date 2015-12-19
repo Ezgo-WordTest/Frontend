@@ -19,14 +19,13 @@ body {
   font-size: 2.5em;
   text-align: center;
   width: 20%;
-  color: #000000;
-  background: #FFFFFF;
+  color: #333333;
+  background: rgb(255,255,255);
 }
 
 .nav-optiontype > li:hover{
   background: #cccccc;
 }
-
 
 .nav-optiontype > li .active {
   border:5px solid #d3d3d3;
@@ -79,15 +78,17 @@ body {
 }
 
 .btn-option {
-  font-size: 4em;
+  font-size: 2em;
   border-radius: 30px;
   box-shadow: 0px 0px 22px 0px antiquewhite;
 }
 
 .btn-start {
-  margin-top: 20px;
-  min-height: 60px;
-  font-size: 3.5em;
-  border-radius: 30px;
   box-shadow: 0px 0px 22px 0px cornflowerblue;
+}
+
+.start{
+  position: absolute;
+  bottom: 15px;
+  width:100%;
 }

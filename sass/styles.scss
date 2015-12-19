@@ -6,4 +6,63 @@
 
 // Import Bootstrap for Sass
 @import "bootstrap";
+
+@font-face{
+  font-family: 'edukai';
+  font-style: normal;
+  src: url(../assets/edukai-3.ttf);
+}
+
+$footer-height: 3em;
+$header-height: 2em;
+
+body {
+  min-height: 100%;
+  background-color: #DDDDFF;
+}
+
+
+header h1{
+  margin: 0;
+  height: $header-height;
+  font-size: 2em;
+  line-height: 2em;
+  box-shadow: 0px 0px 0.5em 1em rgba(200,200,255,0.9);
+}
+
+.font-kai{
+  font-family: "edukai";
+}
+
+$showfooter: "(min-height: 40em) and (min-width: 64em)";
+
+footer{
+  display:none;
+}
+@media #{$showfooter}{
+  footer{
+    display:block;
+    height: $footer-height;
+    width: 100%;
+    font-size: 1.5em;
+    background-color: white;
+    position: absolute;
+    bottom: 10px;
+    text-align: center;
+    box-shadow: 0px 0px 5px 10px rgba(200,200,255,0.7);
+  }
+}
+
+#main-block{
+  position: fixed;
+  top: $header-height + 2.5em;
+  left: 0;
+  right: 0;
+  bottom: 1em;
+}
+@media #{$showfooter}{
+  #main-block{
+    bottom: $footer-height + 3em;
+  }
+}
 @import "bootstrap/theme";
