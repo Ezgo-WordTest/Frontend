@@ -15,29 +15,42 @@
 }
 
 $footer-height: 3em;
-$header-height: 2em;
+$header-height: 90px;
+
+$showfooter: "(min-height: 40em) and (min-width: 64em)";
 
 body {
   min-height: 100%;
   background-color: #DDDDFF;
   background: url(../image/background.jpg) no-repeat center center fixed;
   background-size: cover;
+  font-size: 60%;
+}
+
+@media #{$showfooter}{
+  body{
+    font-size: 100%;
+  }
 }
 
 
 header h1{
   margin: 0;
   height: $header-height;
-  font-size: 2em;
-  line-height: 2em;
+  font-size: 4em;
+  line-height: 160%;
+  padding-top: 20px;
   @include background-image(linear-gradient(to bottom, rgba(200,200,255,1), rgba(200,200,255,0.8) 90%, rgba(255,255,255,0)));
+}
+@media #{$showfooter}{
+  header h1{
+    padding-top: 0px;
+  }
 }
 
 .font-kai{
   font-family: "edukai";
 }
-
-$showfooter: "(min-height: 40em) and (min-width: 64em)";
 
 footer{
   display:none;
@@ -58,7 +71,7 @@ footer{
 
 #main-block{
   position: fixed;
-  top: $header-height + 2.5em;
+  top: $header-height;
   left: 0;
   right: 0;
   bottom: 1em;
