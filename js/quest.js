@@ -42,35 +42,33 @@ var Question = function(topic, description, id, option){
 }
 
 function quest_init(){
-  $("#question-placeholder").load("quest-" + question_type[q_setting] + ".html",layout_init);
-}
+    $("#question-placeholder").load("quest-" + question_type[q_setting] + ".html",function(){
+        update_layout();
 
-function layout_init(){
-  //alert('layout init !');
-  update_layout();
-
-  $('#option-button').click(function(){
-    $('#popup-option').toggleClass('popup-active');
-  });
-  $('#popup-option').click(function(){
-    $('#popup-option').toggleClass('popup-active');
-  });
-  $('.mode-select').click(function(){
-    setTimeout(update_layout,50);
-    q_setting = $(this).attr('data');
-    update_layout();
-    setTimeout(question_display,300);
-    setTimeout(btn_event,300);
-  });
-  /* after layout has been initialized, find first question */
-  setTimeout(btn_event,300);
-  find_question();
+        $('#option-button').click(function(){
+            $('#popup-option').toggleClass('popup-active');
+        });
+        $('#popup-option').click(function(){
+            $('#popup-option').toggleClass('popup-active');
+        });
+        $('.mode-select').click(function(){
+            q_setting = $(this).attr('data');
+            update_layout();
+        });
+        /* after layout has been initialized, find first question */
+        find_question();
+    });
 }
 
 function update_layout(){
-  $("#question-placeholder").load("quest-" + question_type[q_setting] + ".html");
+  $("#question-placeholder").load("quest-" + question_type[q_setting] + ".html", layout_loaded);
 }
-function btn_event() {
+function layout_loaded(){
+    question_display();
+    register_btn_event();
+}
+
+function register_btn_event() {
   $('#option1, #option2, #option3, #option4').click(function() {
     var pressed = $(this).attr('id')[6];
     if( current_question.result == 1 || current_question.result == 3 ) return; // Already correct
@@ -108,7 +106,6 @@ function updateScore(){
 }
 
 function question_display(){
-  //alert('question_display!');
   QuestionTag.display(current_question);
   QuestionTag.updateButtonStatus(current_question.selected_answer, current_question.selected_options);
 }
@@ -143,13 +140,8 @@ var prev_quest = function(){
   question_display();
 }
 
-$('#question-prev').click(function() {
-  prev_quest();
-});
-
-$('#question-next').click(function() {
-  next_quest();
-});
+$('#question-prev').click(prev_quest);
+$('#question-next').click(next_quest);
 
 var find_question = function(){
   //alert('find question!');
