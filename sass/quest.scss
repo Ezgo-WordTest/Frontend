@@ -1,3 +1,5 @@
+@import "compass/css3/flexbox";
+
 #information{
   -webkit-animation: myfirst 0.5s; /* Chrome, Safari, Opera */
   -webkit-animation-fill-mode: forwards;
@@ -12,6 +14,21 @@
   #option-button{
     display:block;
   }
+}
+
+.option-container{
+  @include flexbox((
+    display: box,
+    box-orient: both
+  ), $version: 1);
+  @include flexbox((
+    display: flexbox,
+    flex-direction: both
+  ), $version: 2);
+  @include flexbox((
+    display: flex,
+    flex-direction: both 
+  ));
 }
 
 .popup{

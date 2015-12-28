@@ -106,8 +106,10 @@ function updateScore(){
 }
 
 function question_display(){
-  QuestionTag.display(current_question);
-  QuestionTag.updateButtonStatus(current_question.selected_answer, current_question.selected_options);
+  if(current_question){
+    QuestionTag.display(current_question);
+    QuestionTag.updateButtonStatus(current_question.selected_answer, current_question.selected_options);
+  }
 }
 
 var next_quest = function(){
