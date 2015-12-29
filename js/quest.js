@@ -46,10 +46,10 @@ function quest_init(){
         update_layout();
 
         $('#option-button').click(function(){
-            $('#popup-option').toggleClass('popup-active');
+            $('#popup-option').fadeIn();
         });
         $('#popup-option').click(function(){
-            $('#popup-option').toggleClass('popup-active');
+            $('#popup-option').fadeOut();
         });
         $('.mode-select').click(function(){
             q_setting = $(this).attr('data');
