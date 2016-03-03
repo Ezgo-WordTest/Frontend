@@ -74,7 +74,7 @@ module.exports = function(grunt) {
                 atBegin: true,
             },
             scripts: {
-                files: ['src/**/*.js'],
+                files: ['js/**/*.js'],
                 tasks: ['jshint:js', 'browserify:dev'],
             },
             css: {
